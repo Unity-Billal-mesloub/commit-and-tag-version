@@ -2,13 +2,13 @@
 
 ## Upgrading to v13
 
-v13 upgrades the underlying [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) packages from versions that were several majors behind (`conventional-changelog` 4 → 8, `conventional-changelog-conventionalcommits` 6 → 10, `conventional-recommended-bump` 7 → 12), and makes the package pure ESM. Sorry it took so long to get here!
+v13 upgrades the underlying [conventional-changelog](https://github.com/Unity-Billal-mesloub/conventional-changelog) packages from versions that were several majors behind (`conventional-changelog` 4 → 8, `conventional-changelog-conventionalcommits` 6 → 10, `conventional-recommended-bump` 7 → 12), and makes the package pure ESM. Sorry it took so long to get here!
 
 Most users don't need to change anything: your `.versionrc` / `package.json` configuration, CLI flags, changelog format and version bump behaviour all work exactly as before. The changes below only affect you if one of these applies:
 
 ### Presets other than `conventionalcommits` must be installed separately
 
-Older versions of `commit-and-tag-version` bundled all of the conventional-changelog presets (angular, atom, ember, and so on) via the old `conventional-changelog` metapackage. The new version only ships with the default [conventionalcommits](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-conventionalcommits) preset.
+Older versions of `commit-and-tag-version` bundled all of the conventional-changelog presets (angular, atom, ember, and so on) via the old `conventional-changelog` metapackage. The new version only ships with the default [conventionalcommits](https://github.com/Unity-Billal-mesloub/conventional-changelog/tree/main/packages/conventional-changelog-conventionalcommits) preset.
 
 If you use `--preset` (or the `preset` config key) with anything other than the default, you will need to install that preset alongside `commit-and-tag-version`:
 
@@ -46,6 +46,6 @@ The new conventional-changelog packages require Node.js >= 22, so `commit-and-ta
 
 The upstream packages made some breaking changes that `commit-and-tag-version` shields you from, so no action is needed for these — they're listed here for the record:
 
-- **`types[].hidden` and the URL format options still work.** conventional-changelog-conventionalcommits 10 replaced `types[].hidden` with `types[].effect`, and replaced the `commitUrlFormat`, `compareUrlFormat`, `issueUrlFormat` and `userUrlFormat` template strings with callback functions. `commit-and-tag-version` translates the [config-spec](https://github.com/conventional-changelog/conventional-changelog-config-spec) options for you, so existing configuration keeps working. (If you supply the new-style `effect` / `format*Url` options, they're passed through untouched.)
+- **`types[].hidden` and the URL format options still work.** conventional-changelog-conventionalcommits 10 replaced `types[].hidden` with `types[].effect`, and replaced the `commitUrlFormat`, `compareUrlFormat`, `issueUrlFormat` and `userUrlFormat` template strings with callback functions. `commit-and-tag-version` translates the [config-spec](https://github.com/main/conventional-changelog-config-spec) options for you, so existing configuration keeps working. (If you supply the new-style `effect` / `format*Url` options, they're passed through untouched.)
 - **Version bump recommendations are unchanged.** The new preset only recommends a release when there's at least one `feat`, `fix`, `perf`, `revert` or breaking change; `commit-and-tag-version` keeps its historical behaviour of always recommending at least a patch. Use `--noBumpWhenEmptyChanges` if you don't want a release when there are no relevant commits, as before. In a future major release, we might change this default, depending on feedback.
 - **`parserOpts` and `writerOpts` overrides work as before**, merged over the preset's options.
