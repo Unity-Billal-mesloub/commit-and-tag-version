@@ -1,14 +1,12 @@
 # Commit and Tag Version
 
-> **`commit-and-tag-version` is a fork of `standard-version`**. Because of maintainer availability, `standard-version` was [deprecated on 15th May 2022](https://github.com/conventional-changelog/standard-version/pull/907). The previous maintainer recommends [release-please](https://github.com/googleapis/release-please) as an alternative for those who are using GitHub actions. This fork exists for those who can't switch to `release-please`, or who would like to continue using `standard-version`.
+> **`commit-and-tag-version` is a fork of `standard-version`**. Because of maintainer availability, `standard-version` was [deprecated on 15th May 2022](https://github.com/Unity-Billal-mesloub/standard-version/pull). The previous maintainer recommends [release-please](https://github.com/Unity-Billal-mesloub/release-please) as an alternative for those who are using GitHub actions. This fork exists for those who can't switch to `release-please`, or who would like to continue using `standard-version`.
 
 > **`Can I simply swap the library to migrate?`** To migrate, you can drop in `commit-and-tag-version` in place of `standard-version`. There are no changes in 9.5.0, other than to add the package.json config key `commit-and-tag-version` (the previous configuration key `standard-version` will still work). 10.x drops support for deprecated node versions, 11.x is a formatting change if you're relying on the exact markdown format in the changelog, and 12.x drops support for node 14/16.
 
-> **`Why was it renamed commit-and-tag-version?`**. I didn't want to scope the package or name it `standard-version-fork`, and it was a good opportunity to make the purpose of the tool clearer. I also wanted to distinguish it from the other tool in this organisation, [`absolute-version`](https://github.com/absolute-version/absolute-version-js), which just prints version information for pre-releases.
-
 A utility for versioning using [semver](https://semver.org/) and CHANGELOG generation powered by [Conventional Commits](https://conventionalcommits.org).
 
-![ci](https://github.com/absolute-version/commit-and-tag-version/workflows/ci/badge.svg)
+![ci](https://github.com/Unity-Billal-mesloub/commit-and-tag-version/workflows/ci/badge.svg)
 [![NPM version](https://img.shields.io/npm/v/commit-and-tag-version.svg)](https://www.npmjs.com/package/commit-and-tag-version)
 [![codecov](https://codecov.io/gh/absolute-version/commit-and-tag-version/branch/master/graph/badge.svg?token=J7zMN7vTTd)](https://codecov.io/gh/absolute-version/commit-and-tag-version)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
@@ -56,7 +54,7 @@ _Having problems? Want to contribute? Join us on the [node-tooling community Sla
       - [Custom `updater`s](#custom-updaters)
         - [`readVersion(contents = string): string`](#readversioncontents--string-string)
         - [`writeVersion(contents = string, version: string): string`](#writeversioncontents--string-version-string-string)
-  - [License](#license)
+  
 
 ### How It Works
 
@@ -67,7 +65,7 @@ _Having problems? Want to contribute? Join us on the [node-tooling community Sla
 
 1. Retrieve the current version of your repository by looking at `packageFiles`[[1]](#bumpfiles-packagefiles-and-updaters), falling back to the last `git tag`.
 2. `bump` the version in `bumpFiles`[[1]](#bumpfiles-packagefiles-and-updaters) based on your commits.
-3. Generates a `changelog` based on your commits (uses [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) under the hood).
+3. Generates a `changelog` based on your commits (uses [conventional-changelog](https://github.com/Unity-Billal-mesloub/conventional-changelog) under the hood).
 4. Creates a new `commit` including your `bumpFiles`[[1]](#bumpfiles-packagefiles-and-updaters) and updated CHANGELOG.
 5. Creates a new `tag` with the new version number.
 
@@ -192,12 +190,9 @@ You can configure `commit-and-tag-version` either by:
 
 - If you are using a `.versionrc.js`, `.versionrc.cjs` or `.versionrc.mjs` your default export must be a configuration object, or a function returning a configuration object. Both CommonJS and ES module configs are supported (ES module configs require Node.js >= 22.12).
 
-Any of the command line parameters accepted by `commit-and-tag-version` can instead
-be provided via configuration. Please refer to the [conventional-changelog-config-spec](https://github.com/conventional-changelog/conventional-changelog-config-spec/) for details on available configuration options.
-
 ### Customizing CHANGELOG Generation
 
-By default, `commit-and-tag-version` uses the [conventionalcommits preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-conventionalcommits).
+By default, `commit-and-tag-version` uses the [conventionalcommits preset](https://github.com/Unity-Billal-mesloub/conventional-changelog/tree/main/packages/conventional-changelog-conventionalcommits).
 
 This preset adheres closely to the [conventionalcommits.org](https://www.conventionalcommits.org) specification.
 
@@ -213,7 +208,7 @@ Making these URLs match GitLab's format, rather than GitHub's.
 
 ### Deeper customization
 
-You can override both [parser](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-commits-parser) and [writer](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-writer) options (they will be merged into the preset we just mentioned). As an example, to list commits in the order that they were committed:
+You can override both [parser](https://github.com/Unity-Billal-mesloub/conventional-changelog/tree/main/packages/conventional-commits-parser) and [writer](https://github.com/Unity-Billal-mesloub/conventional-changelog/tree/main/packages/conventional-changelog-writer) options (they will be merged into the preset we just mentioned). As an example, to list commits in the order that they were committed:
 
 ```json
 {
@@ -490,7 +485,7 @@ You can add the `--tag-force` flag to make use of `-f` option when calling `git 
 
 ### Generate changelogs for old releases
 
-Normally only the changelog for the last release will be generated and prepended to the `changelog.md`. If you want to generate changelogs for previous releases you can do so by setting the `releaseCount` option like described [here](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-core#releasecount).
+Normally only the changelog for the last release will be generated and prepended to the `changelog.md`. If you want to generate changelogs for previous releases you can do so by setting the `releaseCount` option like described [here](https://github.com/Unity-Billal-mesloub/conventional-changelog/tree/main/packages/conventional-changelog-core#releasecount).
 
 When setting releaseCount=0 the whole changelog gets regenerated and replaced.
 
@@ -544,7 +539,7 @@ _TIP: Use the `silent` option to prevent `commit-and-tag-version` from printing 
 
 ### How is `commit-and-tag-version` different from `semantic-release`?
 
-[`semantic-release`](https://github.com/semantic-release/semantic-release) is described as:
+[`semantic-release`](https://github.com/Unity-Billal-mesloub/semantic-release) is described as:
 
 > semantic-release automates the whole package release workflow including: determining the next version number, generating the release notes and publishing the package.
 
@@ -694,6 +689,3 @@ Conventional commits is meant to make it easy for machines to reason about the u
 and the changelog generation makes it easy for humans to consume this information too.
 Usually, you wouldn't want non-user facing changes like refactor in the changelog.
 
-## License
-
-ISC
