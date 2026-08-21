@@ -35,14 +35,6 @@
     "version",
     "angular",
     "standard"
-  ],
-  "author": "Ben Coe <ben@npmjs.com>",
-  "contributors": [
-    "Timothy Jones <timothy.l.jones@gmail.com> (https://github.com/TimothyJones)"
-  ],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Unity-Billal-mesloub/commit-and-tag-version/issues"
   },
   "homepage": "https://github.com/Unity-Billal-mesloub/commit-and-tag-version#readme",
   "dependencies": {
